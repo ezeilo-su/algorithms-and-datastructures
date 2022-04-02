@@ -9,4 +9,4 @@ function selectionSort(arr) {
   return arr;
 }
 
-console.log(selectionSort([1, 3, 2, 4, 7, 9, 10]));
+console.log(selectionSort([1, 3, 2, 4, 7, 9, 10, 8]));
