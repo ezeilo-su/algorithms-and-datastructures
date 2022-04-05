@@ -1,7 +1,7 @@
 function mergeSort(arr) {
   if(arr.length <= 1)return arr;
+  
   // A function that merges two sorted arrays
-
   const mergeArrays = (arr1, arr2) => {
     let result = [];
     let i = 0;
