@@ -19,10 +19,11 @@ function mergeSort(arr) {
     );
   }
 
-  return mergeArrays(
-    mergeSort(arr.slice(0, Math.floor(arr.length/2))),
-    mergeSort(arr.slice(Math.floor(arr.length/2)))
-  )
+  const mid =  Math.floor(arr.length/2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+
+  return mergeArrays(left, right);
 }
 
 
