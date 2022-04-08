@@ -8,19 +8,32 @@ function pivot(arr, start = 0, end = arr.length - 1) {
   if (!arr) return null;
 
   let currPivot = arr[start];
-  let currPivotIdx = start;
+  let swapIndex = start;
 
   for (let i = start + 1; i <= end; i++) {
     if (currPivot > arr[i]) {
-      currPivotIdx++;
-      swap(arr, i, currPivotIdx);
+      swapIndex++;
+      swap(arr, i, swapIndex);
     }
   }
-  swap(arr, start, currPivotIdx);
+  swap(arr, start, swapIndex);
 
-  return currPivotIdx;
+  return swapIndex;
 }
 
-const arr = [5, 2, 1, 8, 7, 6, 3];
+const arr = [4, 8, 2, 1, 5, 7, 6, 3];
 
-console.log(`${pivot(arr)} => [${arr}]`);
+// console.log(`\n${pivot(arr)} => [${arr}]`);
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+
+    quickSort(arr, left, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, right);
+  }
+
+  return arr;
+}
+
+console.log(`\n${quickSort(arr)}`);
