@@ -1,7 +1,11 @@
-function pivot(arr, start, end) {
-  if (!arr) return;
-  if (!start) start = 0;
-  if (!end) end = arr.length - 1;
+function pivot(arr, start = 0, end = arr.length - 1) {
+  const swap = (arr, i, j) => {
+    if (arr?.length > 1){
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+
+  if (!arr) return null;
 
   let currPivot = arr[start];
   let currPivotIdx = start;
@@ -9,10 +13,11 @@ function pivot(arr, start, end) {
   for (let i = start + 1; i <= end; i++) {
     if (currPivot > arr[i]) {
       currPivotIdx++;
-      [arr[i], arr[currPivotIdx]] = [arr[currPivotIdx], arr[i]];
+      swap(arr, i, currPivotIdx);
     }
   }
-  [arr[start], arr[currPivotIdx]] = [arr[currPivotIdx], arr[start]];
+  swap(arr, start, currPivotIdx);
+
   return currPivotIdx;
 }
 
