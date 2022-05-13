@@ -34,4 +34,4 @@ const radixSort = (nums) => {
   return nums;
 }
 
-console.log(radixSort([25, 3, 1023]));
+console.log(radixSort([25, 3, 1023, 0, 2, 100, 70]));
