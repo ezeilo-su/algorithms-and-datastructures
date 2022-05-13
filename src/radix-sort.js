@@ -14,10 +14,8 @@ const mostDigits = (nums) => {
   for (let i = 0; i < nums.length; i++) {
     maxDigit = Math.max(maxDigit, digitCount(nums[i]));
   }
-
   return maxDigit;
 }
-
 
 const radixSort = (nums) => {
   const size = nums.length;
