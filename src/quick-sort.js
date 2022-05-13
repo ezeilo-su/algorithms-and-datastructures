@@ -7,20 +7,18 @@ function pivot(arr, start = 0, end = arr.length - 1) {
 
   if (!arr) return null;
 
-  let currPivot = arr[start];
-  let swapIndex = start;
+  const currPivot = arr[start];
+  let pivotIndex = start;
 
   for (let i = start + 1; i <= end; i++) {
     if (currPivot > arr[i]) {
-      swapIndex++;
-      swap(arr, i, swapIndex);
+      pivotIndex++;
+      swap(arr, i, pivotIndex);
     }
   }
-  swap(arr, start, swapIndex);
-
-  return swapIndex;
+  swap(arr, start, pivotIndex);
+  return pivotIndex;
 }
-
 
 function quickSort(arr, left = 0, right = arr.length - 1) {
   if (left < right) {
@@ -36,4 +34,3 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 const arr = [4, 8, 2, 1, 5, 7, 6, 3];
 
 console.log(`\n[${quickSort(arr)}]`);
-console.log(arr)
