@@ -76,11 +76,12 @@ class SinglyLinkedList {
     if(index < 0 || index >= this.length) return null;
 
     let curNode = this.head;
-    for (let i = 0; i < this.length; i++) {
-      if (i === index) return curNode;
+    let counter = 0;
+    while (counter !== index) {
       curNode = curNode.next;
+      counter++;
     }
-    return null;
+    return curNode;
   }
 }
 
@@ -91,6 +92,6 @@ list.push(200);
 
 // console.log(list);
 
-const node = list.get(0);
+const node = list.get(1);
 
 console.log(node);
