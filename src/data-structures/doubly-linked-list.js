@@ -30,8 +30,8 @@ class DoublyLinkedList {
 
   pop () {
     if (!this.head) return null;
-    const oldTail = this.tail;
-    const prev = oldTail.prev;
+    const poppedNode = this.tail;
+    const prev = poppedNode.prev;
     if (prev) {
       prev.next = null;
     } else {
@@ -40,7 +40,7 @@ class DoublyLinkedList {
     this.tail = prev;
     this.length--;
 
-    return oldTail;
+    return poppedNode;
   }
 
 
