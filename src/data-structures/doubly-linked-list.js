@@ -29,7 +29,7 @@ class DoublyLinkedList {
   }
 
   pop () {
-    if (!this.head) return null;
+    if (!this.head) return undefined;
     const poppedNode = this.tail;
     const prev = poppedNode.prev;
     if (prev) {
@@ -41,6 +41,17 @@ class DoublyLinkedList {
     this.length--;
 
     return poppedNode;
+  }
+
+  shift () {
+    if (!this.head) return undefined;
+
+    const removed = this.head;
+    this.head = this.head.next;
+    this.prev = null;
+    this.length--;
+
+    return removed;
   }
 
 
