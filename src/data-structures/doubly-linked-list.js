@@ -15,7 +15,6 @@ class DoublyLinkedList {
 
   push (val) {
     const node = new Node(val);
-    this.length++;
     if (!this.head) {
       this.head = node;
       this.tail = node;
@@ -24,6 +23,7 @@ class DoublyLinkedList {
       node.prev = this.tail;
       this.tail = node;
     }
+    this.length++;
     // let cur = this.head;
     // while (cur.next) {
     //   cur = cur.next;
