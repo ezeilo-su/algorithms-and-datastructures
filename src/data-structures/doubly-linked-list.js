@@ -47,13 +47,32 @@ class DoublyLinkedList {
     if (!this.head) return undefined;
 
     const removed = this.head;
-    this.head = this.head.next;
-    this.prev = null;
+    this.head = removed.next;
+    if(this.head) {
+      this.head.prev = null;
+    } else {
+      this.tail = null;
+    }
     this.length--;
 
     return removed;
   }
 
+  unshift (val) {
+    const node = new Node(val);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      const next = this.head;
+      next.prev = node;
+      node.next = next;
+      this.head = node;
+    }
+    this.length++;
+
+    return this;
+  }
 
     // let cur = this.head;
     // while (cur.next) {
