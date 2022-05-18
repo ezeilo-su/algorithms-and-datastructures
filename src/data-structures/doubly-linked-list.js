@@ -168,6 +168,27 @@ class DoublyLinkedList {
 
     return removedNode;
   }
+
+  reverse(){
+    if(!this.head) return null;
+    if(this.length === 1) return this;
+    
+    let prev;
+    let next;
+    let cur = this.head;
+    this.head = this.tail;
+    this.tail = cur;
+    
+    while (cur) {
+        prev = cur.prev;
+        next = cur.next;
+        cur.next = prev;
+        cur.prev = next
+        cur = next;
+    }
+    
+    return this;
+  }
 }
 
 const list = new DoublyLinkedList();
