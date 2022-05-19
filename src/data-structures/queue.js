@@ -27,9 +27,12 @@ class Queue {
   }
 
   dequeue () {
-    if (!this.first) return false;
+    if (!this.first) return null;
 
     const val = this.first.value;
+    if( this.first === this.last) {
+      this.last = null;
+    }
     this.first = this.first.next;
 
     return val;
