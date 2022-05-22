@@ -41,8 +41,8 @@ class BST {
   find (val) {
     if (!this.root) return false;
     
-    let curNode = this.root,
-    found = null;
+    let curNode = this.root;
+    let found = null;
     while (curNode && !found) {
       if (val > curNode.data) {
         curNode = curNode.right;
@@ -53,5 +53,61 @@ class BST {
       }
     }
     return found;
+  }
+
+  BFS () {
+    let node = this.root
+    if (!node) return null;
+    const queue = new Array(node);
+    const nodeList = [];
+
+    while (queue.length) {
+      node = queue.shift();
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+      nodeList.push(node.data);
+    }
+
+    return nodeList;
+  }
+
+  DFSPreOder () {
+    const data = [];
+    let cur = this.root;
+
+    function traverse(node) {
+      data.push(node.data);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(cur);
+
+    return data;
+  }
+
+  DFSPostOder () {
+    const data = [];
+    let cur = this.root;
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.data);
+    }
+    traverse(cur);
+
+    return data;
+  }
+
+  DFSInOder () {
+    const data = [];
+    let cur = this.root;
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      data.push(node.data);
+      if (node.right) traverse(node.right);
+    }
+    traverse(cur);
+
+    return data;
   }
 }
